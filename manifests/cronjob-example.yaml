@@ -9,7 +9,7 @@ spec:
       template:
         spec:
           containers:
-          - name: backup-cronjob-example
+          - name: backup-cronjob
             image: ghcr.io/strrl/backup-cronjob:latest
             env:
             - name: SRC_CODE
