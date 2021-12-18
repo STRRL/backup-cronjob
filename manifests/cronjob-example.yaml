@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: backup-cronjob-example
+spec:
+  schedule: "@daily"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: backup-cronjob-example
+            image: ghcr.io/strrl/backup-cronjob:latest
+            env:
+            - name: SRC_CODE
+              value: "/data/source"
+            - name: BACKUP_DIR
+              value: "/data/backup"
+            - name: PROJECT_NAME
+              value: "backup-cronjob-example"
