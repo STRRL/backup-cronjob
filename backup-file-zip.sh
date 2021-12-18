@@ -30,11 +30,11 @@ DATE=$FN-`date +"%Y%m%d"`
 
 function local_only
 {
-	zip -r $BACKUP_DIR/$PROJECT_NAME-htdocs-$DATE.zip $SRC_CODE
+	zip -r $BACKUP_DIR/$PROJECT_NAME-backup-$DATE.zip $SRC_CODE
 	cd $BACKUP_DIR/
-	ls -t | grep $PROJECT_NAME | grep htdocs | grep daily | sed -e 1,"$BACKUP_RETENTION_DAILY"d | xargs -d '\n' rm -R > /dev/null 2>&1
-	ls -t | grep $PROJECT_NAME | grep htdocs | grep weekly | sed -e 1,"$BACKUP_RETENTION_WEEKLY"d | xargs -d '\n' rm -R > /dev/null 2>&1
-	ls -t | grep $PROJECT_NAME | grep htdocs | grep monthly | sed -e 1,"$BACKUP_RETENTION_MONTHLY"d | xargs -d '\n' rm -R > /dev/null 2>&1
+	ls -t | grep $PROJECT_NAME | grep backup | grep daily | sed -e 1,"$BACKUP_RETENTION_DAILY"d | xargs -d '\n' rm -R > /dev/null 2>&1
+	ls -t | grep $PROJECT_NAME | grep backup | grep weekly | sed -e 1,"$BACKUP_RETENTION_WEEKLY"d | xargs -d '\n' rm -R > /dev/null 2>&1
+	ls -t | grep $PROJECT_NAME | grep backup | grep monthly | sed -e 1,"$BACKUP_RETENTION_MONTHLY"d | xargs -d '\n' rm -R > /dev/null 2>&1
 }
 
 local_only || exit 0
